@@ -16,6 +16,9 @@ var msgDivEl = document.querySelector("#msgDiv");
 var saveScoreEl = document.querySelector("#save-score-button");
 var highScoresButton = document.querySelector("#high-scores");
 var highScoresDiv = document.querySelector("#high-scores-div");
+var highScoresArea = document.querySelector("#score-area");
+var playAgainButton = document.querySelector("#play-button");
+
 
 
 
@@ -127,6 +130,19 @@ function startQuiz() {
 
 }
 
+function startQuizAgain() {
+    cursor = 0;
+    scotr = 0;
+    timeLeft = 75;
+    startEl.style.display = "none";
+    endEl.style.display = "none";
+    highScoresDiv.style.display = "none";
+    quizEl.style.display = "block";
+    renderQuestion();
+    initializeTimer();
+
+}
+
 //this function checks the user's selection against the data-id of the correct answer
 
 function checkAnswer(event) {
@@ -171,7 +187,7 @@ function initializeTimer() {
     timeLeft = parseInt(timerEl.getAttribute("data-time"));
     interval = setInterval(function () {
         timeLeft--;
-        if (timeLeft > 0) {
+        if (timeLeft > 0 && cursor<questions.length) {
             timerEl.textContent = "TIMER: " + timeLeft;
         }
         else {
@@ -197,8 +213,41 @@ function displayMessage(type, message) {
     msgDivEl.textContent = message;
     msgDivEl.setAttribute("class", type);
   }
+var scores = [];
+
+  function renderScores(){
+    
+    init();
+
+    highScoresArea.innerHTML = "";
+    
+    endEl.style.display = "none";
+    highScoresDiv.style.display = "block";
+    
+    for (var i = 0; i < scores.length; i++) {
+        var score = scores[i];
+    
+        var li = document.createElement("li");
+        li.textContent = score.initials + " :  " + score.score ;
+        li.setAttribute("data-index", i);
+
+        highScoresArea.appendChild(li);
+      }
+
+}
+
+function init() {
+    // Write code here to check if there are todos in localStorage
+    // If so, parse the value from localStorage and assign it to the todos variable
+  var scoresFromStorage = JSON.parse(localStorage.getItem("scores"));
+  if (scoresFromStorage) {  
+  scores = scoresFromStorage;
+}
+}
 
 startButton.addEventListener("click", startQuiz);
+
+playAgainButton.addEventListener("click", startQuizAgain);
 
 choicesEl.addEventListener("click", checkAnswer);
 
@@ -220,20 +269,17 @@ saveScoreEl.addEventListener("click", function () {
   
   } else {
     displayMessage("success", "Your score is saved!");
-    localStorage.setItem('initials', initials);
-    localStorage.setItem('score', score);
+    var scoreVar = { initials: initials, score: score };
+    scores.push(scoreVar);
+    localStorage.setItem('scores', JSON.stringify(scores));
+    initialsInput.value = "";
+    
+
 }
 
 
 });
 
-highScoresButton.addEventListener("click", function(){
-    endEl.style.display = "none";
-    highScoresDiv.style.display = "block";
-    highScoreGen = document.createElement("div");
-    highScoreGen.textContent= localStorage.getItem('initials') + " : " + localStorage.getItem('score');
-    highScoresDiv.appendChild(highScoreGen);
-
-})
+highScoresButton.addEventListener("click", renderScores);
 
 
