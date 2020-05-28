@@ -1,0 +1,32 @@
+#start, #quiz, #end {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: beige;
+    margin: 100px 300px;
+    padding: 100px 0px;
+}
+
+h1{
+    text-transform: uppercase;
+    font-family: monospace;
+}
+
+#start-button {
+    background-color: lightcoral;
+    color:whitesmoke;
+    text-transform: uppercase;
+    padding: 30px;
+}
+
+#quiz {
+    display: none;
+}
+
+#end {
+    display: none;
+}
+
+#question-text {
+    font-size: 18px;
+    font-weight: bold;
+}
