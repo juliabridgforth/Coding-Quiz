@@ -1,4 +1,4 @@
-#start, #quiz, #end {
+#start, #quiz, #end, #high-scores-div {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     background-color: beige;
@@ -6,13 +6,6 @@
     padding: 100px 0px;
 }
 
-#high-scores-div {
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: beige;
-    margin: 100px 300px;
-    padding: 100px 0px;
-}
 
 h1{
     text-transform: uppercase;
@@ -59,7 +52,7 @@ h1{
     font-size: 24px;
 }
 
-#save-score-button {
+#save-score-button, #play-button {
     background-color: lightcoral;
     color:whitesmoke;
     text-transform: uppercase;
@@ -78,6 +71,6 @@ h1{
     margin: 10px;
 }
 
-#high-score-div{
+#high-scores-div{
     display: none;
 }
