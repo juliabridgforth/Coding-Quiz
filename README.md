@@ -1,42 +1,30 @@
-# 04 Web APIs: Code Quiz
+<img src="https://www.dropbox.com/s/cmp0pj7949fd2eh/Screenshot%202020-05-28%2010.13.01.png?dl=0" alt="photo of quiz"/>
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+#Code Quiz
+
+This is a quiz that will test your knowledge about basic coding. It has a 75 second timer that initializes at the start of the quiz, but with each incorrect answer, 10 seconds are deducted from the overall time. At the end of the quiz, you can save your score with your initials and see your score on the High Scores list.
 
 ## User Story
 
 ```
-AS A coding bootcamp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
+Once you click start, you are presented with your first question.
+<img src="https://www.dropbox.com/s/bjad48ciw9dbc8k/Screenshot%202020-05-28%2010.14.30.png?dl=0" alt="photo of quiz question"/>
+
+If you guess incorrectly, you will get a notification that "You are wrong." And your timer will lose 10 seconds.
+<img src="https://www.dropbox.com/s/772nzg8yekhi0y3/Screenshot%202020-05-28%2010.16.14.png?dl=0" alt="photo of quiz question"/>
+
+If you answer correctly, you will get a notification that "You are right!"
+<img src="https://www.dropbox.com/s/chbypebmpug7ogo/Screenshot%202020-05-28%2010.18.23.png?dl=0" alt="photo of quiz question"/>
+
+Click the next question button to go to the next question.
+<img src="https://www.dropbox.com/s/4xdxaivfavjtadk/Screenshot%202020-05-28%2010.18.54.png?dl=0" alt="photo of quiz question"/>
+
+At the end, you will see your score and be able to save it with your initials.
+
+<img src="https://www.dropbox.com/s/n5jf63b8s3wqis4/Screenshot%202020-05-28%2010.21.00.png?dl=0" alt="photo of quiz question"/>
+
 ```
 
-## Acceptance Criteria
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
-```
 
-The following animation demonstrates the application functionality:
 
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
-
-### Review
-
-You are required to submit the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
